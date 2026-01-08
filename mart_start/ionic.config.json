@@ -1,0 +1,7 @@
+{
+  "name": "mart_start",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
