@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      MartStore
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p>bonjour bienvenue dans ma boutique</p>
+  <ul *ngFor="let article of Articles">
+    <li>{{article.nom}}-{{article.prix}}</li>
+
+  </ul>
+  <ion-button (click)="showsDetails">Details</ion-button>
+</ion-content>
+<ion-footer>
+  <p class="footer">je suis le pied de la page</p>
+</ion-footer>
