@@ -7,13 +7,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>bonjour bienvenue dans ma boutique</p>
-  <ul *ngFor="let article of Articles">
-    <li>{{article.nom}}-{{article.prix}}</li>
-
-  </ul>
-  <ion-button (click)="showsDetails">Details</ion-button>
+ <ion-list>
+  <ion-button *ngFor="let article of Articles">
+    <ion-thumbnail item-start>
+      <img src="article.images[0]" alt="image">
+    </ion-thumbnail>
+    <h2>{{article.titre}}</h2>
+    <p>{{article.description}}</p>
+  </ion-button>
+ </ion-list>
 </ion-content>
 <ion-footer>
   <p class="footer">je suis le pied de la page</p>
 </ion-footer>
+
+
