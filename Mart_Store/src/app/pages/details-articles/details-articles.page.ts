@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import 'swiper/element/bundle'; // ✅ IMPORTANT
+
 
 @Component({
   selector: 'app-details-articles',

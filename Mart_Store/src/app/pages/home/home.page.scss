@@ -1,6 +1,14 @@
-page-home .footer {
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
+};
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;   /* nombre de lignes visibles */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+

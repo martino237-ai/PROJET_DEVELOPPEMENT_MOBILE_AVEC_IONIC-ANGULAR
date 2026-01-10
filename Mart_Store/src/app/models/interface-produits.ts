@@ -8,9 +8,12 @@ export interface produits{
     date_creation : Date;
     disponibilite : Availability;
     ville: string;
+    categorie : string;
+    etoiles: number;
 
 }
 export interface Availability{
     disponible:boolean;
     type : string;
+    frais_livraison: number;
 }

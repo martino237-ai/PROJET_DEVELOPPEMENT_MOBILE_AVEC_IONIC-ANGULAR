@@ -1,13 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>details_articles</ion-title>
+    <ion-title>Détails article</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">details_articles</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-card>
+
+    <swiper-container
+      slides-per-view="1"
+      loop="true"
+      autoplay-delay="3000"
+      autoplay-disable-on-interaction="false"
+      pagination="true"
+    >
+
+      <swiper-slide>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi accusantium doloremque magni, voluptates vitae recusandae. Optio, impedit illo culpa sapiente odio hic veniam illum suscipit, non quo porro sint error!</p>
+      </swiper-slide>
+
+      <swiper-slide>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nemo ab repellendus velit molestiae, illo adipisci sequi hic praesentium ex dolores voluptatem consectetur, quasi quae, corrupti veniam soluta cupiditate eaque!</p>
+      </swiper-slide>
+
+      <swiper-slide>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ullam nobis ab magni? Sapiente eum molestias numquam reprehenderit quos deserunt culpa cumque saepe, soluta veniam ducimus quasi nostrum modi omnis?</p>
+      </swiper-slide>
+
+    </swiper-container>
+
+  </ion-card>
+
 </ion-content>

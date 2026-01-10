@@ -1,24 +1,52 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      MartStore
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>MartStore</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
- <ion-list>
-  <ion-button *ngFor="let article of Articles">
-    <ion-thumbnail item-start>
-      <img src="article.images[0]" alt="image">
-    </ion-thumbnail>
-    <h2>{{article.titre}}</h2>
-    <p>{{article.description}}</p>
-  </ion-button>
- </ion-list>
+  <ion-list>
+    <ion-item (click)="AfficherDetails(article)" *ngFor="let article of Articles">
+      
+      <ion-thumbnail slot="start">
+        <img [src]="article.images[0]" alt="image">
+      </ion-thumbnail>
+
+      <ion-label>
+        <h2>{{ article.titre }}</h2>
+        <p class="description">{{ article.description }}</p>
+        <p>{{article.prix | currency}}</p>
+        <p>
+          <span *ngIf="article.etoiles >= 1">
+            <ion-icon name="star" color="warning"></ion-icon>
+          </span>
+          <span *ngIf="article.etoiles >= 2">
+            <ion-icon name="star" color="warning"></ion-icon>
+          </span>
+          <span *ngIf="article.etoiles >= 3">
+            <ion-icon name="star" color="warning"></ion-icon>
+          </span>
+          <span *ngIf="article.etoiles >= 4">
+            <ion-icon name="star" color="warning"></ion-icon>
+          </span>
+          <span *ngIf="article.etoiles >= 5">
+            <ion-icon name="star" color="warning"></ion-icon>
+          </span>
+        </p>
+
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
 </ion-content>
+
 <ion-footer>
-  <p class="footer">je suis le pied de la page</p>
+  <ion-row>
+    <ion-col offset-1 col-10 class="footer">
+      <ion-button round large>
+        <ion-icon name="camera"></ion-icon>&nbsp;
+        vendre un article
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-footer>
-
-
