@@ -1,35 +1,28 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>Détails article</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
+<ion-content>
   <ion-card>
+  <swiper
+    [slidesPerView]="1"
+    [loop]="true"
+    [autoplay]="{ delay: 3000 }"
+    [pagination]="{ clickable: true }"
+  >
+    <ng-template swiperSlide>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quae omnis velit, illo ea veritatis facilis exercitationem aut nemo quibusdam voluptas ducimus aliquid ipsum possimus ab architecto delectus enim fugit.</p>
+    </ng-template>
 
-    <swiper-container
-      slides-per-view="1"
-      loop="true"
-      autoplay-delay="3000"
-      autoplay-disable-on-interaction="false"
-      pagination="true"
-    >
+    <ng-template swiperSlide>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, vel corrupti. Consectetur saepe, maiores, voluptatum doloremque obcaecati quo omnis mollitia excepturi rerum pariatur distinctio dolores nihil architecto fugiat numquam aut!</p>
+    </ng-template>
 
-      <swiper-slide>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi accusantium doloremque magni, voluptates vitae recusandae. Optio, impedit illo culpa sapiente odio hic veniam illum suscipit, non quo porro sint error!</p>
-      </swiper-slide>
-
-      <swiper-slide>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam nemo ab repellendus velit molestiae, illo adipisci sequi hic praesentium ex dolores voluptatem consectetur, quasi quae, corrupti veniam soluta cupiditate eaque!</p>
-      </swiper-slide>
-
-      <swiper-slide>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ullam nobis ab magni? Sapiente eum molestias numquam reprehenderit quos deserunt culpa cumque saepe, soluta veniam ducimus quasi nostrum modi omnis?</p>
-      </swiper-slide>
-
-    </swiper-container>
-
+    <ng-template swiperSlide>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto commodi reprehenderit facere est minus, eum inventore illo, cumque repudiandae a cum doloribus. Molestias cum impedit id consectetur tenetur, praesentium nam.</p>
+    </ng-template>
+  </swiper>
   </ion-card>
-
 </ion-content>

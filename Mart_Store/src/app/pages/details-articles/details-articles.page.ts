@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import 'swiper/element/bundle'; // ✅ IMPORTANT
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
+SwiperCore.use([Autoplay, Pagination]);
 
 
 @Component({

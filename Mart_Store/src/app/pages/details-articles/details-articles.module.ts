@@ -1,8 +1,9 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+
+import { SwiperModule } from 'swiper/angular';
 
 import { DetailsArticlesPageRoutingModule } from './details-articles-routing.module';
 import { DetailsArticlesPage } from './details-articles.page';
@@ -12,9 +13,9 @@ import { DetailsArticlesPage } from './details-articles.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    SwiperModule, 
     DetailsArticlesPageRoutingModule
   ],
-  declarations: [DetailsArticlesPage],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // ✅ OBLIGATOIRE pour swiper-container
+  declarations: [DetailsArticlesPage]
 })
 export class DetailsArticlesPageModule {}
