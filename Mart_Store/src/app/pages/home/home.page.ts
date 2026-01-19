@@ -174,9 +174,15 @@ export class HomePage {
 
 
   }
-  AfficherDetails(article: produits) :void {
-  this.navCtrl.navigateForward('/details-articles');
+  AfficherDetails(article: produits): void {
+  this.navCtrl.navigateForward('/details-articles', {
+    state: {
+      article: article
+    }
+  });
 }
+
+
 
     
 }

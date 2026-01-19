@@ -16,6 +16,7 @@ const routes: Routes = [
     path: 'details-articles',
     loadChildren: () => import('./pages/details-articles/details-articles.module').then( m => m.DetailsArticlesPageModule)
   },
+  
 ];
 
 @NgModule({

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { produits } from 'src/app/models/interface-produits';
+import { NavController } from '@ionic/angular';
 import SwiperCore, { Autoplay, Pagination } from 'swiper';
-SwiperCore.use([Autoplay, Pagination]);
 
+SwiperCore.use([Autoplay, Pagination]);
 
 @Component({
   selector: 'app-details-articles',
@@ -11,9 +13,18 @@ SwiperCore.use([Autoplay, Pagination]);
 })
 export class DetailsArticlesPage implements OnInit {
 
-  constructor() { }
+  detailsDetails!: produits;
 
-  ngOnInit() {
+  constructor(private navCtrl: NavController) {
+    const navigation = history.state;
+    if (navigation && navigation.article) {
+      this.detailsDetails = navigation.article;
+    }
   }
 
+  ngOnInit() {}
+
+  goBack() {
+    this.navCtrl.back();
+  }
 }

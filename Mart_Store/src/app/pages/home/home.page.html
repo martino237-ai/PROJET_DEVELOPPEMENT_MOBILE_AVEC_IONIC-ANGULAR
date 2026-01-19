@@ -6,37 +6,35 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item (click)="AfficherDetails(article)" *ngFor="let article of Articles">
-      
-      <ion-thumbnail slot="start">
-        <img [src]="article.images[0]" alt="image">
-      </ion-thumbnail>
+    <ion-item
+  *ngFor="let article of Articles"
+  button
+  (click)="AfficherDetails(article)"
+>
 
-      <ion-label>
-        <h2>{{ article.titre }}</h2>
-        <p class="description">{{ article.description }}</p>
-        <p>{{article.prix | currency}}</p>
-        <p>
-          <span *ngIf="article.etoiles >= 1">
-            <ion-icon name="star" color="warning"></ion-icon>
-          </span>
-          <span *ngIf="article.etoiles >= 2">
-            <ion-icon name="star" color="warning"></ion-icon>
-          </span>
-          <span *ngIf="article.etoiles >= 3">
-            <ion-icon name="star" color="warning"></ion-icon>
-          </span>
-          <span *ngIf="article.etoiles >= 4">
-            <ion-icon name="star" color="warning"></ion-icon>
-          </span>
-          <span *ngIf="article.etoiles >= 5">
-            <ion-icon name="star" color="warning"></ion-icon>
-          </span>
-        </p>
+  <ion-thumbnail slot="start">
+    <img [src]="article.images[0]" alt="image">
+  </ion-thumbnail>
 
-      </ion-label>
+  <ion-label>
+    <h2>{{ article.titre }}</h2>
 
-    </ion-item>
+    <p class="description">
+      {{ article.description }}
+    </p>
+
+    <p>{{ article.prix | currency:'XAF' }}</p>
+
+    <p>
+      <ion-icon *ngFor="let s of [].constructor(article.etoiles)"
+                name="star"
+                color="warning">
+      </ion-icon>
+    </p>
+  </ion-label>
+
+</ion-item>
+
   </ion-list>
 </ion-content>
 
