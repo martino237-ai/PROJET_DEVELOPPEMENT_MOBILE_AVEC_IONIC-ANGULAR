@@ -174,12 +174,16 @@ export class HomePage {
 
 
   }
+  ouvrirMenu() {
+    this.navCtrl.navigateForward('/menu');
+  }
   AfficherDetails(article: produits): void {
   this.navCtrl.navigateForward('/details-articles', {
     state: {
       article: article
     }
   });
+  
 }
 
 

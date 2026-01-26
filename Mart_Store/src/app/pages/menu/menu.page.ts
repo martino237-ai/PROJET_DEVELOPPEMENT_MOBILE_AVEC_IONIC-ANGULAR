@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { category } from './models/interface-category';
 import { NavController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import { category } from 'src/app/models/interface-category';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  selector: 'app-home',
+  templateUrl: 'menu.page.html',
+  styleUrls: ['menu.page.scss'],
   standalone: false,
 })
-export class AppComponent {
+export class MenuPage {
   categories:category[];
   constructor( public menuctrl:MenuController) {
     this.categories=[
