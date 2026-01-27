@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { produits } from 'src/app/models/interface-produits';
-import { NavController, ToastController, ToastOptions } from '@ionic/angular';
+import { ModalController, NavController, ToastController, ToastOptions } from '@ionic/angular';
 import SwiperCore, { Autoplay, Pagination,Navigation,EffectFade } from 'swiper';
 import { Storage } from '@ionic/storage';
 import { itemCart } from 'src/app/models/interface-itemsCart';
+import { PanierPage } from '../panier/panier.page';
 
 SwiperCore.use([Autoplay, Pagination, Navigation, EffectFade]);
 
@@ -26,7 +27,8 @@ export class DetailsArticlesPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     public storage:Storage,
-    public toastctrl:ToastController) {
+    public toastctrl:ToastController,
+    public modalCtrl:ModalController) {
     const navigation = history.state;
     if (navigation && navigation.article) {
       this.produitDetails = navigation.article;
@@ -36,10 +38,6 @@ export class DetailsArticlesPage implements OnInit {
    async ngOnInit() {
     await this.storage.create();
    }
-
-  goBack() {
-    this.navCtrl.back();
-  }
   async AddToCard(produit: produits) {
   let added = false;
 
@@ -90,5 +88,13 @@ export class DetailsArticlesPage implements OnInit {
 
   await toast.present();
 }
+opencart(): void {
+  this.modalCtrl.create({
+    component: PanierPage,
+    cssClass: 'my-custom-class'
+  }).then((modal) => {
+    modal.present();
+  });
 
+}
 }

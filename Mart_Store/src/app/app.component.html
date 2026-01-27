@@ -16,6 +16,7 @@
         button
         menuClose
         *ngFor="let category of categories"
+        (click)="goToHome(category)"
       >
         <ion-icon
           [name]="category.icon"
@@ -33,22 +34,22 @@
         <ion-label>👤 Mon compte</ion-label>
       </ion-item-divider>
 
-      <ion-item button menuClose>
+      <ion-item button menuClose (click)="goToProfil()">
         <ion-icon name="person-circle" slot="start"></ion-icon>
         <ion-label>Profil</ion-label>
       </ion-item>
 
-      <ion-item button menuClose>
+      <ion-item button menuClose (click)="goToMessages()">
         <ion-icon name="mail" slot="start"></ion-icon>
         <ion-label>Messages</ion-label>
       </ion-item>
 
-      <ion-item button menuClose>
+      <ion-item button menuClose (click)="goToPanier()">
         <ion-icon name="cart" slot="start"></ion-icon>
         <ion-label>Mon panier</ion-label>
       </ion-item>
 
-      <ion-item button menuClose>
+      <ion-item button menuClose (click)="goToAbout()">
         <ion-icon name="help-circle" slot="start"></ion-icon>
         <ion-label>À propos</ion-label>
       </ion-item>
@@ -56,7 +57,6 @@
     </ion-list>
   </ion-content>
 </ion-menu>
-
 
 <!-- CONTENU PRINCIPAL -->
 <ion-router-outlet id="main-content"></ion-router-outlet>

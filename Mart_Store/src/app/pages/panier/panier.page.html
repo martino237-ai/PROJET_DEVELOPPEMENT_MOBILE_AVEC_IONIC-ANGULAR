@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mon panier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="cartItems.length > 0; else emptyCart" class="cart-container">
+    <ion-card *ngFor="let item of cartItems; let i = index" class="cart-item">
+      <ion-card-header>
+        <ion-thumbnail slot="start" class="item-image">
+          <img [src]="item.item.images[0]" [alt]="item.item.titre" alt=""/>
+        </ion-thumbnail>
+        <ion-card-title class="item-title">{{ item.item.titre }}</ion-card-title>
+        <ion-card-subtitle class="item-price">{{ item.item.prix | currency:'XAF' }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p class="item-description">{{ item.item.description }}</p>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <p class="price-info">
+                <strong>Quantité:</strong> {{ item.qty }}<br>
+                <strong>Total:</strong> {{ item.amount | currency:'XAF' }}
+              </p>
+            </ion-col>
+            <ion-col size="6" class="contact-col">
+              <ion-button fill="outline" size="small" color="secondary" (click)="contactSeller(item.item)" class="contact-btn">
+                <ion-icon name="mail" slot="start"></ion-icon>
+                Contacter
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <div class="quantity-controls">
+          <ion-button (click)="decreaseQty(item)" [disabled]="item.qty <= 1" fill="outline" size="small" color="medium">
+            <ion-icon name="remove"></ion-icon>
+          </ion-button>
+          <ion-badge color="primary" class="quantity-badge">{{ item.qty }}</ion-badge>
+          <ion-button (click)="increaseQty(item)" fill="outline" size="small" color="medium">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+          <ion-button (click)="removeItem(i)" color="danger" fill="clear" size="small" class="remove-btn">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty-cart-container">
+      <ion-icon name="basket" size="large" color="medium"></ion-icon>
+      <h3>Votre panier est vide</h3>
+      <p>Ajoutez des articles pour commencer vos achats</p>
+      <ion-button routerLink="/home" color="primary">
+        <ion-icon name="home" slot="start"></ion-icon>
+        Continuer mes achats
+      </ion-button>
+    </div>
+  </ng-template>
+</ion-content>
+
+<ion-footer *ngIf="cartItems.length > 0">
+  <ion-toolbar>
+    <div class="total-section">
+      <h4>Total: {{ getTotal() | currency:'XAF' }}</h4>
+      <p>{{ getTotalItems() }} article(s)</p>
+    </div>
+    <div class="footer-buttons">
+      <ion-button (click)="goBack()" fill="outline" color="light">Retour</ion-button>
+      <ion-button expand="block" color="success">Commander</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

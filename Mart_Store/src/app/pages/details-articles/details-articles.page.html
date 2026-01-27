@@ -1,11 +1,17 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-button (click)="goBack()">
-        <ion-icon name="arrow-back"></ion-icon>
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details {{produitDetails.titre}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="share"></ion-icon>
+      </ion-button>
+      <ion-button (click)="opencart()">
+        <ion-icon name="cart"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Details {{produitDetails?.titre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 

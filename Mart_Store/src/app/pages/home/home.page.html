@@ -1,43 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-buttons  slot="start">
-      <ion-menu-button autoHide="false" ></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
     <ion-title>MartStore</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- Barre de recherche -->
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (ionInput)="filterArticles($event)"
+    placeholder="Rechercher des articles..."
+    animated="true"
+  ></ion-searchbar>
+
   <ion-list>
     <ion-item
-      *ngFor="let article of Articles"
+      *ngFor="let article of filteredArticles"
       button
-    (click)="AfficherDetails(article)"
->
+      (click)="AfficherDetails(article)"
+    >
+      <ion-thumbnail slot="start">
+        <img [src]="article.images[0]" alt="image">
+      </ion-thumbnail>
 
-  <ion-thumbnail slot="start">
-    <img [src]="article.images[0]" alt="image">
-  </ion-thumbnail>
-
-  <ion-label>
-    <h2>{{ article.titre }}</h2>
-
-    <p class="description">
-      {{ article.description }}
-    </p>
-
-    <p>{{ article.prix | currency:'XAF' }}</p>
-
-    <p>
-      <ion-icon *ngFor="let s of [].constructor(article.etoiles)"
-                name="star"
-                color="warning">
-      </ion-icon>
-    </p>
-  </ion-label>
-
-</ion-item>
-
+      <ion-label>
+        <h2>{{ article.titre }}</h2>
+        <p class="description">{{ article.description }}</p>
+        <p>{{ article.prix | currency:'XAF' }}</p>
+        <p>
+          <ion-icon
+            *ngFor="let s of [].constructor(article.etoiles)"
+            name="star"
+            color="warning"
+          ></ion-icon>
+        </p>
+      </ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
 

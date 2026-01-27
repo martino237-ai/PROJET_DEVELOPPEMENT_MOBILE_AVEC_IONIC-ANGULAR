@@ -12,15 +12,16 @@ import { produits } from 'src/app/models/interface-produits';
 export class HomePage {
 
   Articles: produits[];
+  filteredArticles: produits[];
+  searchTerm: string = '';
 
   constructor(
     public navCtrl: NavController,
     alertCtrl: AlertController,
     modalCtrl: ModalController
   ) {
-
+    // Initialisation des articles
     this.Articles = [
-
       // ===== PRODUIT 1 =====
       {
         id: 1,
@@ -80,7 +81,6 @@ export class HomePage {
           disponible: true,
           type: 'livraison',
           frais_livraison: 500
-
         },
         images: [
           'assets/produits/cahier-A4.jpeg'
@@ -149,6 +149,7 @@ export class HomePage {
           'assets/produits/regle-30cm.jpeg'
         ]
       },
+
       // ===== PRODUIT 7 =====
       {
         id: 7,
@@ -169,13 +170,18 @@ export class HomePage {
           'assets/produits/feutres-couleurs.jpeg'
         ]
       }
-
     ];
-
-
+    this.filteredArticles = this.Articles;
   }
-  ouvrirMenu() {
-    this.navCtrl.navigateForward('/menu');
+
+  // Filtrer les articles en fonction du terme de recherche
+  filterArticles(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+    this.filteredArticles = this.Articles.filter(article =>
+      article.titre.toLowerCase().includes(searchTerm) ||
+      article.description.toLowerCase().includes(searchTerm) ||
+      article.categorie.toLowerCase().includes(searchTerm)
+    );
   }
   AfficherDetails(article: produits): void {
   this.navCtrl.navigateForward('/details-articles', {
