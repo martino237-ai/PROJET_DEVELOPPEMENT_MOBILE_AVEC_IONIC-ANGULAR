@@ -1,0 +1,10 @@
+/* Signup page styles */
+:host { display: block }
+
+.ion-padding {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+ion-button { --border-radius: 8px }

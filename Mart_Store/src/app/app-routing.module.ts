@@ -5,8 +5,24 @@ const routes: Routes = [
  
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'accueil',
     pathMatch: 'full'
+  },
+  {
+    path: 'accueil',
+    loadChildren: () => import('./pages/accueil/accueil.module').then(m => m.AccueilPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule)
+  },
+  {
+    path: 'add-product',
+    loadChildren: () => import('./pages/add-product/add-product.module').then(m => m.AddProductPageModule)
   },
   {
     path: 'home',

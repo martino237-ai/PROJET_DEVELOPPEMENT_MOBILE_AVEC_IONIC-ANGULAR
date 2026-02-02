@@ -1,0 +1,6 @@
+.preview { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap }
+.preview ion-chip img { width:80px; height:80px; object-fit:cover; border-radius:6px }
+
+ion-item { --padding-start:12px; --padding-end:12px }
+ion-button { --border-radius:8px }
+

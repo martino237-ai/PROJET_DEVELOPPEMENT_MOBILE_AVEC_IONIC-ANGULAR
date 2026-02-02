@@ -1,0 +1,21 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Bienvenue sur MartStore</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="accueil-content" fullscreen>
+  <div class="hero">
+    <h1>Vendez. Achetez. Partagez.</h1>
+    <p>Rejoignez notre communauté — publiez facilement vos articles en quelques clics.</p>
+    <ion-row class="buttons">
+      <ion-col>
+        <ion-button expand="block" color="primary" (click)="goToSignup()">S'inscrire</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" fill="outline" color="primary" (click)="goToLogin()">Se connecter</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-button fill="clear" color="medium" (click)="skipToHome()">Continuer sans compte</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Vendre un article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Titre</ion-label>
+    <ion-input [(ngModel)]="titre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea rows="4" [(ngModel)]="description"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Prix</ion-label>
+    <ion-input type="number" [(ngModel)]="prix"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Ville</ion-label>
+    <ion-input [(ngModel)]="ville"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Catégorie</ion-label>
+    <ion-input [(ngModel)]="categorie"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>État</ion-label>
+    <ion-select [(ngModel)]="etat">
+      <ion-select-option value="neuf">Neuf</ion-select-option>
+      <ion-select-option value="occasion">Occasion</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Disponibilité</ion-label>
+    <ion-select [(ngModel)]="disponibiliteType">
+      <ion-select-option value="magasin">Magasin</ion-select-option>
+      <ion-select-option value="livraison">Livraison</ion-select-option>
+    </ion-select>
+    <ion-input type="number" [(ngModel)]="fraisLivraison" placeholder="Frais livraison" slot="end"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Étoiles (0-5)</ion-label>
+    <ion-input type="number" [(ngModel)]="etoiles" min="0" max="5"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <input type="file" accept="image/*" (change)="onFilesChange($event)" multiple capture>
+  </ion-item>
+
+  <div *ngIf="images.length" class="preview">
+    <ion-chip *ngFor="let img of images">
+      <img [src]="img" alt="preview" />
+    </ion-chip>
+  </div>
+
+  <ion-button expand="block" (click)="submit()" style="margin-top:16px">Publier</ion-button>
+</ion-content>

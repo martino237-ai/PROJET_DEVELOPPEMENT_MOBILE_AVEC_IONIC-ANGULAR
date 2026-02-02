@@ -23,19 +23,17 @@
       (click)="AfficherDetails(article)"
     >
       <ion-thumbnail slot="start">
-        <img [src]="article.images[0]" alt="image">
+        <img [src]="article.images && article.images.length ? article.images[0] : 'assets/icon/favicon.png'" alt="image">
       </ion-thumbnail>
 
       <ion-label>
         <h2>{{ article.titre }}</h2>
         <p class="description">{{ article.description }}</p>
         <p>{{ article.prix | currency:'XAF' }}</p>
-        <p>
-          <ion-icon
-            *ngFor="let s of [].constructor(article.etoiles)"
-            name="star"
-            color="warning"
-          ></ion-icon>
+        <p class="stars">
+          <ng-container *ngFor="let _ of createRange(article.etoiles)">
+            <ion-icon name="star" color="warning"></ion-icon>
+          </ng-container>
         </p>
       </ion-label>
     </ion-item>
@@ -45,7 +43,7 @@
 <ion-footer>
   <ion-row>
     <ion-col offset-1 col-10 class="footer">
-      <ion-button round large>
+      <ion-button round large (click)="goToAddProduct()">
         <ion-icon name="camera"></ion-icon>&nbsp;
         vendre un article
       </ion-button>
